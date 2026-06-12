@@ -1,0 +1,30 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f3;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+.container { max-width: 900px; margin: 0 auto; }
+.section { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); margin-bottom: 20px; }
+.hidden { display: none !important; }
+h1, h2, h3 { color: #2c3e50; margin-top: 0; }
+.text-center { text-align: center; }
+.form-box { background: #f9fbfb; padding: 20px; border: 1px solid #e3e9ed; border-radius: 8px; margin-bottom: 20px; }
+input, select, button { width: 100%; padding: 12px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; }
+button { background-color: #3498db; color: white; font-weight: bold; cursor: pointer; border: none; transition: 0.2s; }
+button:hover { background-color: #2980b9; }
+.header-nav { display: flex; justify-content: space-between; align-items: center; border-bottom: 20px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+.btn-logout { background-color: #e74c3c; width: auto; padding: 8px 15px; margin: 0; }
+.btn-logout:hover { background-color: #c0392b; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0; }
+th { background-color: #34495e; color: white; }
+.toggle-text { color: #3498db; cursor: pointer; text-decoration: underline; margin-top: 15px; }
+.btn-action { width: auto; padding: 4px 10px; margin: 2px; font-size: 12px; display: inline-block; }
+.btn-edit { background-color: #f1c40f; color: black; }
+.btn-edit:hover { background-color: #d4ac0d; }
+.btn-del { background-color: #e74c3c; }
+.btn-del:hover { background-color: #c0392b; }
+.btn-get { background-color: #2ecc71; }
+.btn-get:hover { background-color: #27ae60; }

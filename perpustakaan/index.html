@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Perpustakaan Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 1. HALAMAN AUTENTIKASI (LOGIN & REGISTER) -->
+        <div id="auth-page" class="section">
+            <h1 class="text-center">Perpustakaan Digital</h1>
+            <div class="form-box">
+                <h3 id="auth-title">Login Masuk</h3>
+                <form id="authForm">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <select id="role" required>
+                        <option value="user">Pengunjung</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <button type="submit" id="btn-auth">Masuk</button>
+                </form>
+                <p class="text-center toggle-text" onclick="toggleAuthMode()">Belum punya akun? Daftar di sini</p>
+            </div>
+        </div>
+
+        <!-- 2. HALAMAN DASHBOARD ADMIN -->
+        <div id="admin-page" class="section hidden">
+            <div class="header-nav">
+                <h2>Dashboard Admin</h2>
+                <button onclick="logout()" class="btn-logout">Keluar</button>
+            </div>
+
+            <!-- CRUD Buku (Syarat 3) -->
+            <div class="form-box">
+                <h3>Kelola Katalog Buku</h3>
+                <form id="bookForm">
+                    <input type="hidden" id="edit-book-id">
+                    <input type="text" id="book-title" placeholder="Judul Buku" required>
+                    <input type="text" id="book-author" placeholder="Penulis" required>
+                    <input type="number" id="book-qty" placeholder="Jumlah Stok Tersedia" required>
+                    <button type="submit" id="btn-book-submit">Simpan Buku</button>
+                    <button type="button" id="btn-cancel-edit" class="hidden" onclick="resetBookForm()">Batal Edit</button>
+                </form>
+            </div>
+
+            <div class="table-box">
+                <h3>Daftar Katalog Buku</h3>
+                <table>
+                    <thead>
+                        <tr><th>Judul</th><th>Penulis</th><th>Stok</th><th>Aksi</th></tr>
+                    </thead>
+                    <tbody id="admin-book-table"></tbody>
+                </table>
+            </div>
+
+            <!-- Tambah & Edit Data Peminjam Baru (Syarat 5) -->
+            <div class="form-box">
+                <h3>Kelola Data Peminjam (Tambah/Edit)</h3>
+                <form id="borrowForm">
+                    <input type="hidden" id="edit-borrow-id">
+                    <input type="text" id="borrower-name" placeholder="Nama Peminjam" required>
+                    <input type="text" id="borrow-book" placeholder="Judul Buku yang Dipinjam" required>
+                    <input type="date" id="borrow-date" required>
+                    <button type="submit" id="btn-borrow-submit">Simpan Data Peminjam</button>
+                    <button type="button" id="btn-cancel-borrow-edit" class="hidden" onclick="resetBorrowForm()">Batal Edit</button>
+                </form>
+            </div>
+
+            <!-- Daftar Pengguna & Peminjam (Syarat 2) -->
+            <div class="table-box">
+                <h3>Daftar Peminjam Buku</h3>
+                <table>
+                    <thead>
+                        <tr><th>Nama Peminjam</th><th>Buku</th><th>Tanggal Pinjam</th><th>Aksi</th></tr>
+                    </thead>
+                    <tbody id="admin-borrow-table"></tbody>
+                </table>
+            </div>
+
+            <div class="table-box">
+                <h3>Daftar Pengguna Terdaftar</h3>
+                <table>
+                    <thead>
+                        <tr><th>Username</th><th>Role</th></tr>
+                    </thead>
+                    <tbody id="admin-user-table"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3. HALAMAN DASHBOARD PENGGUNA -->
+        <div id="user-page" class="section hidden">
+            <div class="header-nav">
+                <h2>Halaman Pengunjung</h2>
+                <button onclick="logout()" class="btn-logout">Keluar</button>
+            </div>
+
+            <!-- Melihat Daftar Buku & Pinjam Buku (Syarat 4) -->
+            <div class="table-box">
+                <h3>Katalog Buku Tersedia</h3>
+                <table>
+                    <thead>
+                        <tr><th>Judul Buku</th><th>Penulis</th><th>Sisa Stok</th><th>Aksi</th></tr>
+                    </thead>
+                    <tbody id="user-book-table"></tbody>
+                </table>
+            </div>
+
+            <div class="table-box">
+                <h3>Riwayat Peminjaman Saya</h3>
+                <table>
+                    <thead>
+                        <tr><th>Nama</th><th>Buku</th><th>Tanggal Pinjam</th></tr>
+                    </thead>
+                    <tbody id="user-borrow-table"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
